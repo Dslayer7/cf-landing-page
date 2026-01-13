@@ -1,0 +1,52 @@
+═══════════════════════════════════════════════════════════════
+  COLECCIÓN RESTAURACIÓN Y FE - INSTALLATION COMMANDS
+═══════════════════════════════════════════════════════════════
+
+Copy and paste these commands ONE AT A TIME in your terminal:
+
+───────────────────────────────────────────────────────────────
+STEP 1: INSTALL DEPENDENCIES (Takes 2-3 minutes)
+───────────────────────────────────────────────────────────────
+
+npm install
+
+───────────────────────────────────────────────────────────────
+STEP 2: MOVE BOOK COVER IMAGES (Run these one by one)
+───────────────────────────────────────────────────────────────
+
+move Cover01_ebook.jpg public\
+
+move Cover02_ebook.png public\
+
+move Cover03_ebook.png public\
+
+───────────────────────────────────────────────────────────────
+STEP 3: RUN DEVELOPMENT SERVER
+───────────────────────────────────────────────────────────────
+
+npm run dev
+
+Then open your browser and go to: http://localhost:3000
+
+───────────────────────────────────────────────────────────────
+IMPORTANT: ADD THESE IMAGES TO THE PUBLIC FOLDER
+───────────────────────────────────────────────────────────────
+
+You need to manually add these two images:
+
+1. hero-image.jpg     (Main hero section - author with books)
+2. author-photo.jpg   (Author's professional portrait)
+
+Place them in: c:/D-Files/Coding/CF_LandingPage/public/
+
+───────────────────────────────────────────────────────────────
+WHEN READY TO DEPLOY TO FIREBASE:
+───────────────────────────────────────────────────────────────
+
+npm run build
+
+firebase deploy
+
+═══════════════════════════════════════════════════════════════
+  For detailed instructions, see QUICK_START.md
+═══════════════════════════════════════════════════════════════
