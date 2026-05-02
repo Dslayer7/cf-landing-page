@@ -22,8 +22,10 @@ import { FINAL_CTA_CONTENT } from '@/lib/constants';
 
 export const FinalCTASection: React.FC = () => {
   const handleCTAClick = () => {
-    // TODO: Replace with actual purchase link/form
-    alert('Redirigiendo a la página de compra...');
+    const element = document.getElementById('coleccion');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (

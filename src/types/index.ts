@@ -18,6 +18,8 @@ export interface Ebook {
   closingStatement: string;      // Powerful closing message
   coverImage: string;            // Path to book cover image
   ctaText: string;              // Call-to-action button text
+  salesUrl: string;             // Hotmart sales page (go.hotmart.com)
+  purchaseUrl: string;          // Hotmart checkout page (pay.hotmart.com)
 }
 
 /**

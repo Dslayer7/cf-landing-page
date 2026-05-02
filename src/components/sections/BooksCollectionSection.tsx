@@ -219,19 +219,14 @@ export const BooksCollectionSection: React.FC = () => {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.7 }}
                     >
-                      <Button
-                        variant="primary"
-                        size="large"
-                        onClick={() => {
-                          const element = document.getElementById('comprar');
-                          if (element) {
-                            element.scrollIntoView({ behavior: 'smooth' });
-                          }
-                        }}
-                        className="w-full md:w-auto"
+                      <a
+                        href={selectedBook.purchaseUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hotmart-fb hotmart__button-checkout inline-flex items-center justify-center gap-2 w-full md:w-auto px-10 py-4 bg-brand-500 hover:bg-brand-600 text-white font-semibold text-lg rounded-full shadow-brand transition-all duration-200 hover:scale-105 cursor-pointer no-underline"
                       >
                         Obtener Este Libro
-                      </Button>
+                      </a>
                     </motion.div>
                   </>
                 );

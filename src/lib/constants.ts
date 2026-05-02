@@ -70,6 +70,8 @@ export const EBOOKS: Ebook[] = [
     closingStatement: 'Este no es solo un libro, es una historia de resurrección emocional, escrita para todo corazón que ha amado, caído y decidido volver a creer.',
     coverImage: '/Cover01_ebook.jpg',
     ctaText: 'Conocer Más Sobre Este Libro',
+    salesUrl: 'https://go.hotmart.com/K105640822T',
+    purchaseUrl: 'https://pay.hotmart.com/K105640822T',
   },
   {
     id: 'libro-2',
@@ -84,6 +86,8 @@ export const EBOOKS: Ebook[] = [
     closingStatement: 'Este libro es una invitación a clamar, creer y esperar… porque cuando el cielo se une a la fe, la sanidad ocurre.',
     coverImage: '/Cover02_ebook.png',
     ctaText: 'Descubre el Poder de la Oración',
+    salesUrl: 'https://go.hotmart.com/T105640031B',
+    purchaseUrl: 'https://pay.hotmart.com/T105640031B',
   },
   {
     id: 'libro-3',
@@ -99,6 +103,8 @@ export const EBOOKS: Ebook[] = [
     closingStatement: 'Cada día incluye reflexiones bíblicas, ejercicios espirituales y oraciones guiadas que te llevarán a experimentar la verdadera libertad que solo viene de Cristo. Este libro es un abrazo para el alma ansiosa, una guía práctica para sanar desde adentro y un recordatorio constante de que el miedo no tiene la última palabra.',
     coverImage: '/Cover03_ebook.png',
     ctaText: 'Comienza Tu Viaje de Libertad',
+    salesUrl: 'https://go.hotmart.com/P105649750A',
+    purchaseUrl: 'https://pay.hotmart.com/P105649750A',
   },
 ];
 
