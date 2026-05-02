@@ -78,10 +78,10 @@ export const Header: React.FC = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
     >
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-3 md:py-4 flex items-center justify-between">
         {/* Logo / Brand Name */}
         <motion.div 
-          className="text-xl md:text-2xl font-display font-bold text-text-primary cursor-pointer"
+          className="text-lg md:text-2xl font-display font-semibold tracking-tight text-text-primary cursor-pointer"
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           whileHover={{ scale: 1.05 }}
         >
@@ -115,7 +115,7 @@ export const Header: React.FC = () => {
           aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
           aria-expanded={isMenuOpen}
         >
-          {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 

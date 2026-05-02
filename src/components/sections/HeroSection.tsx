@@ -60,17 +60,6 @@ export const HeroSection: React.FC = () => {
           >
             <div className="max-w-2xl">
 
-              {/* Warm accent badge - modern pill design */}
-              <motion.div
-                className="inline-flex items-center gap-2 text-xs md:text-sm font-bold uppercase tracking-widest text-warm-700 bg-warm-100 px-5 py-2.5 rounded-full border-2 border-warm-300/50 mb-6"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-              >
-                <span className="w-2 h-2 bg-warm-500 rounded-full animate-pulse" />
-                Restauración & Fe
-              </motion.div>
-              
               {/* Main Heading - Larger, bolder, modern */}
               <motion.h1
                 className="font-display text-5xl sm:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-[1.1] drop-shadow-lg"

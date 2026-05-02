@@ -97,7 +97,7 @@ export default function MadrePage() {
           src="/MotherPageCover.png"
           fill
           alt="Mamá leyendo con sus hijos"
-          className="object-cover object-center lg:object-right"
+          className="object-cover object-[80%_50%] lg:object-right"
           priority
         />
 

@@ -41,8 +41,35 @@ export const TestimonialsSection: React.FC = () => {
           </p>
         </motion.div>
 
-        {/* Testimonials Grid */}
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        {/* Mobile: horizontal snap-scroll carousel */}
+        <div
+          className="md:hidden flex overflow-x-auto snap-x snap-mandatory gap-5 pb-4 -mx-4 px-4"
+          style={{ scrollbarWidth: 'none' }}
+        >
+          {TESTIMONIALS.map((testimonial) => (
+            <div
+              key={testimonial.id}
+              className="snap-start shrink-0 w-[82vw] max-w-[340px] bg-white rounded-2xl p-7 relative shadow-soft border border-warm-100/60 flex flex-col"
+            >
+              <Quote className="text-warm-500 opacity-60 mb-4" size={32} />
+              <p className="text-text-secondary text-base leading-relaxed mb-6 italic flex-1">
+                &ldquo;{testimonial.quote}&rdquo;
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-warm-500 rounded-full flex items-center justify-center text-text-on-brand font-bold text-base shrink-0">
+                  {testimonial.name.charAt(0)}
+                </div>
+                <div>
+                  <p className="font-semibold text-text-primary text-sm">{testimonial.name}</p>
+                  <p className="text-xs text-text-light">{testimonial.age} años</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Desktop: 2-column animated grid */}
+        <div className="hidden md:grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {TESTIMONIALS.map((testimonial, index) => (
             <motion.div
               key={testimonial.id}
@@ -52,26 +79,17 @@ export const TestimonialsSection: React.FC = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
-              {/* Quote Icon */}
               <Quote className="text-warm-500 opacity-60 mb-4" size={40} />
-              
-              {/* Testimonial Quote */}
               <p className="text-text-secondary text-base md:text-lg leading-relaxed mb-6 italic">
                 &ldquo;{testimonial.quote}&rdquo;
               </p>
-              
-              {/* Customer Info */}
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 bg-warm-500 rounded-full flex items-center justify-center text-text-on-brand font-bold text-lg">
                   {testimonial.name.charAt(0)}
                 </div>
                 <div>
-                  <p className="font-semibold text-text-primary">
-                    {testimonial.name}
-                  </p>
-                  <p className="text-sm text-text-light">
-                    {testimonial.age} años
-                  </p>
+                  <p className="font-semibold text-text-primary">{testimonial.name}</p>
+                  <p className="text-sm text-text-light">{testimonial.age} años</p>
                 </div>
               </div>
             </motion.div>
