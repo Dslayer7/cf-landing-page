@@ -17,6 +17,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
+import { ChevronDown } from 'lucide-react';
 import { EbookCardProps } from '@/types';
 
 export const EbookCard: React.FC<EbookCardProps> = ({ 
@@ -65,37 +67,49 @@ export const EbookCard: React.FC<EbookCardProps> = ({
           
           {/* Selected Badge */}
           {isExpanded && (
-            <div>
-              <motion.div
-                className="absolute top-4 right-4 bg-brand-600 text-text-on-brand px-4 py-2 rounded-full font-semibold text-sm shadow-brand"
-                initial={{ scale: 0, rotate: -180 }}
-                animate={{ scale: 1, rotate: 0 }}
-                transition={{ type: "spring", stiffness: 500, damping: 15 }}
-              >
-                ✓ Seleccionado
-              </motion.div>
-
-              {/* Title overlay */}
-              <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-brand-900/90 to-transparent" />
-              <div className="absolute bottom-4 left-0 right-0 px-4">
-                <h3 className="font-display text-text-on-brand text-lg font-bold text-center drop-shadow-md px-4 py-2 bg-brand-700/80 backdrop-blur-sm rounded-lg">
-                  {ebook.title}
-                </h3>
-              </div>
-            </div>
+            <motion.div
+              className="absolute top-4 right-4 bg-brand-600 text-text-on-brand px-4 py-2 rounded-full font-semibold text-sm shadow-brand"
+              initial={{ scale: 0, rotate: -180 }}
+              animate={{ scale: 1, rotate: 0 }}
+              transition={{ type: "spring", stiffness: 500, damping: 15 }}
+            >
+              ✓ Seleccionado
+            </motion.div>
           )}
         </div>
 
-        {/* Book Info - Fixed height container */}
-        <div className="p-6 min-h-[140px] flex flex-col justify-between bg-surface-50">
-          <div>
-            <h3 className="font-display text-xl md:text-2xl font-bold text-text-primary mb-2 leading-tight line-clamp-2 min-h-[3em]">
-              {ebook.title}
-            </h3>
-          </div>
-          <p className="text-sm md:text-base text-brand-500 italic line-clamp-2">
+        {/* Book Info */}
+        <div className="p-6 bg-surface-50">
+          <h3 className="font-display text-xl md:text-2xl font-bold text-text-primary mb-2 leading-tight line-clamp-2 min-h-[3em]">
+            {ebook.title}
+          </h3>
+          <p className="text-sm md:text-base text-brand-500 italic line-clamp-2 mb-4">
             {ebook.subtitle}
           </p>
+
+          {/* Price + Buy Button — inside card, stopPropagation prevents toggle */}
+          <div className="border-t border-brand-100 pt-4">
+            <Link
+              href={`/${ebook.id === 'libro-1' ? 'divorcio' : ebook.id === 'libro-2' ? 'sanidad' : 'ansiedad'}`}
+              onClick={(e) => e.stopPropagation()}
+              className="block w-full text-center bg-brand-500 hover:bg-brand-600 text-white font-semibold py-3 rounded-xl transition-all duration-200 hover:scale-[1.02] shadow-soft no-underline text-sm md:text-base"
+            >
+              Ver Este Libro
+            </Link>
+            <button
+              onClick={onToggle}
+              className="mt-3 w-full flex items-center justify-center gap-1 text-xs text-text-light hover:text-brand-500 transition-colors"
+            >
+              Más información
+              <motion.span
+                animate={{ rotate: isExpanded ? 180 : 0 }}
+                transition={{ duration: 0.3 }}
+                className="inline-flex"
+              >
+                <ChevronDown size={13} />
+              </motion.span>
+            </button>
+          </div>
         </div>
       </motion.div>
     </motion.div>

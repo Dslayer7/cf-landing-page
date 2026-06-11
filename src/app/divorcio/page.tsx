@@ -6,38 +6,37 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Check, Heart, Star, BookOpen, Shield, Sun } from 'lucide-react';
 
-const PURCHASE_URL = 'https://pay.hotmart.com/I105601030B';
+const PURCHASE_URL = 'https://pay.hotmart.com/K105640822T';
 
 const painPoints = [
-  'Te preocupa la salud de tus hijos',
-  'Has sentido miedo por su bienestar',
-  'Has orado… pero necesitas más dirección',
-  'No quieres quedarte sola con la angustia',
+  'Has pasado por un divorcio y sientes que tu corazón está roto',
+  'La soledad y la culpa te acompañan cada día',
+  'No sabes cómo reconstruir tu vida después de tanto dolor',
+  'Necesitas esperanza y un nuevo comienzo',
 ];
 
 const benefits = [
-  'Oraciones específicas por la salud y vida de tus hijos',
-  'Testimonios de madres que oraron y recibieron milagros y protección',
-  'Cómo orar con fe y autoridad en momentos de enfermedad',
-  'Claves poderosas para vencer el miedo como madre',
-  'Reflexiones bíblicas que traen paz en medio de la tormenta',
+  'Sanar las heridas del rechazo y el abandono.',
+  'Recuperar la confianza y la esperanza después del divorcio.',
+  'Descansar en la paz que solo Dios puede dar.',
+  'Reconstruir tu vida desde adentro, con propósito y libertad.',
 ];
 
 const testimonials = [
   {
-    quote: 'Hoy tengo paz, incluso en medio del proceso de salud de mi hijo.',
-    name: 'María J.',
-    role: 'Madre de 2 hijos',
+    quote: 'Después de mi divorcio, sentía que mi vida había terminado. Este libro me mostró que Dios tenía un plan mejor para mí. Hoy soy una mujer nueva, llena de paz y propósito.',
+    name: 'María G.',
+    role: '42 años',
   },
   {
-    quote: 'Aprendí a orar con fe, no desde el miedo. Este libro cambió mi manera de interceder.',
-    name: 'Carmen R.',
-    role: 'Mamá y lectora',
+    quote: 'Este libro no es teoría, es vida real. Cada página me hablaba directamente a mi dolor. Hoy puedo decir que soy libre.',
+    name: 'Ana P.',
+    role: '38 años',
   },
   {
-    quote: 'Este ebook me devolvió la esperanza cuando más la necesitaba.',
-    name: 'Ana L.',
-    role: 'Madre de familia',
+    quote: 'Encontré en estas páginas el abrazo que mi alma necesitaba. Dios restauró mi corazón.',
+    name: 'Laura M.',
+    role: '45 años',
   },
 ];
 
@@ -47,7 +46,7 @@ const fadeUp = {
   viewport: { once: true as const },
 };
 
-export default function MadrePage() {
+export default function DivorcioPage() {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -55,9 +54,6 @@ export default function MadrePage() {
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
-
-  const scrollTo = (id: string) =>
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
 
   return (
     <main className="min-h-screen font-body">
@@ -74,7 +70,7 @@ export default function MadrePage() {
           <Link
             href="/"
             className={`text-sm font-medium transition-colors ${
-              isScrolled ? 'text-white/70 hover:text-white' : 'text-stone-700 hover:text-stone-900'
+              isScrolled ? 'text-white/70 hover:text-white' : 'text-white/80 hover:text-white'
             }`}
           >
             ← Restauración y Fe
@@ -82,78 +78,65 @@ export default function MadrePage() {
         </div>
       </header>
 
-      {/* ── HERO ── full-bleed photo, cream bg match, dark text ── */}
-      {/*
-        MotherPageCover.png: warm cream/sand bg (~#f0d9b8), mother+kids on right.
-        Left area of the image is naturally clear, so dark text reads perfectly.
-        Section bg color matches the image so edges are seamless.
-      */}
-      <section
-        className="relative min-h-[65vh] lg:min-h-screen flex items-center overflow-hidden"
-        style={{ backgroundColor: '#f0d9b8' }}
-      >
-        {/* Full-bleed background photo */}
+      {/* ── HERO ── */}
+      <section className="relative min-h-[65vh] lg:min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-slate-700 via-slate-600 to-slate-800">
+        {/* Background Image (Blurred cover book) */}
         <Image
-          src="/MotherPageCover.png"
+          src="/Cover01_ebook.jpg"
           fill
-          alt="Mamá leyendo con sus hijos"
-          className="object-cover object-[80%_50%] lg:object-right"
+          alt="Background"
+          className="object-cover blur-[8px] opacity-45 scale-110"
           priority
         />
 
-        {/* Mobile-only cream fade so text stays readable on narrow viewports */}
-        <div
-          className="absolute inset-0 sm:hidden"
-          style={{
-            background:
-              'linear-gradient(to right, rgba(240,217,184,0.92) 55%, rgba(240,217,184,0.3) 100%)',
-          }}
-        />
+        {/* Navy Layer Overlay with low opacity for readability */}
+        <div className="absolute inset-0 bg-slate-950/45" />
 
-        {/* Content — left-aligned over the clean cream area */}
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 xl:px-24 pt-32 pb-20">
-          <div className="max-w-lg xl:max-w-xl">
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pt-32 pb-20">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            
+            {/* Left: Text Content */}
+            <div className="max-w-lg">
 
             <motion.div
-              className="inline-flex items-center gap-2 bg-amber-600/15 border border-amber-600/30 text-amber-800 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold mb-7"
+              className="inline-flex items-center gap-2 bg-rose-600/15 border border-rose-600/30 text-rose-800 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold mb-7"
               initial={{ opacity: 0, y: -16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
               <Heart size={12} fill="currentColor" />
-              Edición Especial · Día de las Madres
+              Restauración y Esperanza
               <Heart size={12} fill="currentColor" />
             </motion.div>
 
             <motion.h1
-              className="font-display text-5xl sm:text-6xl lg:text-7xl font-extrabold text-stone-900 leading-[1.05] italic mb-4"
+              className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.05] mb-4"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.15 }}
             >
-              El Poder de una
+              Libre de la Ansiedad
               <br />
-              <span className="text-amber-700">Madre que Ora</span>
+              <span className="text-rose-400">del Divorcio</span>
             </motion.h1>
 
             <motion.p
-              className="text-xl sm:text-2xl text-stone-700 font-medium italic mb-4"
+              className="text-xl sm:text-2xl text-rose-200 font-medium italic mb-4"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.35, duration: 0.7 }}
             >
-              por la Salud y Vida de sus Hijos
+              Cómo el amor de Dios puede sanar lo que el corazón ya no sabe cómo recomponer.
             </motion.p>
 
             <motion.p
-              className="text-base sm:text-lg text-stone-600 leading-relaxed mb-10 max-w-md"
+              className="text-base sm:text-lg text-slate-200 leading-relaxed mb-10 max-w-md"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.7 }}
             >
-              Cuando una madre ora, el cielo responde con sanidad, protección y vida.
-              Descubre cómo cubrir a tus hijos con oraciones poderosas, incluso en
-              momentos de enfermedad, miedo o incertidumbre.
+              Un camino de 8 días para sanar el corazón. Descubre cómo Dios puede restaurar
+              lo que el divorcio rompió y darte una nueva identidad llena de esperanza.
             </motion.p>
 
             <motion.div
@@ -166,11 +149,31 @@ export default function MadrePage() {
                 href={PURCHASE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-amber-600 hover:bg-amber-700 text-white font-bold text-base sm:text-lg px-8 py-4 rounded-full shadow-lg transition-all duration-200 hover:scale-105 no-underline"
+                className="hotmart-fb hotmart__button-checkout !inline-flex !flex-row !items-center !justify-center !gap-2 bg-rose-600 hover:bg-rose-700 text-white font-bold text-base sm:text-lg px-8 py-4 rounded-full shadow-lg transition-all duration-200 hover:scale-105 no-underline"
               >
                 <Heart size={18} fill="currentColor" className="flex-shrink-0" />
-                <span>Quiero Orar Por la Vida de Mis Hijos</span>
+                <span>Quiero Sanar Mi Corazón</span>
               </a>
+            </motion.div>
+
+            </div>
+
+            {/* Right: Book Cover Card */}
+            <motion.div
+              className="hidden lg:flex justify-center lg:justify-end"
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
+              <div className="relative w-80 h-[480px] rounded-3xl overflow-hidden shadow-2xl ring-4 ring-white/20">
+                <Image
+                  src="/Cover01_ebook.jpg"
+                  fill
+                  alt="Libre de la Ansiedad del Divorcio"
+                  className="object-cover"
+                  sizes="320px"
+                />
+              </div>
             </motion.div>
 
           </div>
@@ -183,11 +186,11 @@ export default function MadrePage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
 
           <motion.div className="text-center mb-12" {...fadeUp} transition={{ duration: 0.7 }}>
-            <p className="text-xs font-bold uppercase tracking-widest text-amber-600 mb-3">
-              Para ti, mamá
+            <p className="text-xs font-bold uppercase tracking-widest text-rose-600 mb-3">
+              Para ti que has pasado por esto
             </p>
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-stone-900">
-              Sé lo que pesa en tu corazón…
+              Sé lo que sientes en tu corazón…
             </h2>
           </motion.div>
 
@@ -199,7 +202,7 @@ export default function MadrePage() {
                 {...fadeUp}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
               >
-                <span className="w-8 h-8 rounded-full bg-amber-100 text-amber-700 font-bold text-sm flex items-center justify-center shrink-0">
+                <span className="w-8 h-8 rounded-full bg-rose-100 text-rose-700 font-bold text-sm flex items-center justify-center shrink-0">
                   {i + 1}
                 </span>
                 <p className="text-stone-700 font-medium leading-snug">{p}</p>
@@ -207,17 +210,16 @@ export default function MadrePage() {
             ))}
           </div>
 
-          {/* Bridge quote */}
           <motion.div
             className="bg-stone-900 text-white rounded-3xl px-8 md:px-14 py-12 text-center"
             {...fadeUp}
             transition={{ duration: 0.8 }}
           >
             <p className="font-display text-2xl md:text-3xl lg:text-4xl font-bold italic leading-relaxed">
-              &ldquo;Hay batallas que una madre no pelea con sus manos…
+              &ldquo;El divorcio puede romper un matrimonio…
             </p>
-            <p className="font-display text-2xl md:text-3xl lg:text-4xl font-bold italic text-amber-400 mt-1">
-              las pelea de rodillas.&rdquo;
+            <p className="font-display text-2xl md:text-3xl lg:text-4xl font-bold italic text-rose-400 mt-1">
+              pero Dios puede restaurar un corazón.&rdquo;
             </p>
           </motion.div>
         </div>
@@ -227,29 +229,28 @@ export default function MadrePage() {
       <section className="py-20 md:py-28 bg-stone-900 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <motion.div {...fadeUp} transition={{ duration: 0.8 }}>
-            <p className="text-xs font-bold uppercase tracking-widest text-amber-400 mb-4">
-              El Ebook
+            <p className="text-xs font-bold uppercase tracking-widest text-rose-400 mb-4">
+              El Libro
             </p>
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-8 leading-tight">
-              Una guía para cubrir la vida
-              <br className="hidden md:block" /> de tus hijos con fe
+              Una historia de resurrección
+              <br className="hidden md:block" /> emocional
             </h2>
             <p className="text-lg md:text-xl text-stone-300 leading-relaxed max-w-3xl mx-auto mb-10">
-              <em>
-                &ldquo;El Poder de una Madre que Ora por la Salud y Vida de sus Hijos&rdquo;
-              </em>{' '}
-              es una guía espiritual práctica que te enseña a interceder con fe, autoridad y
-              esperanza, aun en medio de la incertidumbre. Transforma tu preocupación en
-              oración efectiva y aprende a declarar vida, sanidad y protección cada día.
+              Después de tres divorcios y una profunda batalla contra la soledad, la culpa y la ansiedad, 
+              la autora encontró algo más poderoso que cualquier terapia: el amor incondicional de Dios y 
+              el descanso en la oración constante. En estas páginas abre su corazón para contar cómo, paso 
+              a paso, fue liberada de la depresión y la angustia emocional, descubriendo una nueva identidad 
+              en Cristo: una mujer restaurada, valiosa y plena.
             </p>
             <a
               href={PURCHASE_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold px-8 py-4 rounded-full shadow-xl transition-all duration-200 hover:scale-105 no-underline"
+              className="hotmart-fb hotmart__button-checkout !inline-flex !flex-row !items-center !justify-center !gap-2 bg-rose-500 hover:bg-rose-400 text-white font-bold px-8 py-4 rounded-full shadow-xl transition-all duration-200 hover:scale-105 no-underline"
             >
-              <BookOpen size={18} />
-              Obtener Mi Ebook
+              <BookOpen size={18} className="flex-shrink-0" />
+              <span>Obtener Este Libro</span>
             </a>
           </motion.div>
         </div>
@@ -260,35 +261,33 @@ export default function MadrePage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
 
-            {/* Book cover */}
             <motion.div
-              className="relative rounded-3xl overflow-hidden aspect-square shadow-2xl"
+              className="relative rounded-3xl overflow-hidden aspect-[3/4] shadow-2xl"
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
               <Image
-                src="/MotherBookCover.png"
-                alt="El Poder de una Madre que Ora – Portada"
+                src="/Cover01_ebook.jpg"
+                alt="Libre de la Ansiedad del Divorcio – Portada"
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </motion.div>
 
-            {/* Benefits list */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <p className="text-xs font-bold uppercase tracking-widest text-amber-600 mb-3">
-                Lo que recibirás dentro
+              <p className="text-xs font-bold uppercase tracking-widest text-rose-600 mb-3">
+                Lo que aprenderás
               </p>
               <h3 className="font-display text-2xl md:text-3xl font-bold text-stone-900 mb-8 leading-tight">
-                Herramientas reales para una madre guerrera
+                Un camino hacia la restauración completa
               </h3>
               <ul className="space-y-4 mb-10">
                 {benefits.map((b, i) => (
@@ -300,8 +299,8 @@ export default function MadrePage() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.3 + i * 0.08 }}
                   >
-                    <div className="w-6 h-6 rounded-full bg-amber-100 flex items-center justify-center shrink-0 mt-0.5">
-                      <Check size={13} className="text-amber-600" strokeWidth={3} />
+                    <div className="w-6 h-6 rounded-full bg-rose-100 flex items-center justify-center shrink-0 mt-0.5">
+                      <Check size={13} className="text-rose-600" strokeWidth={3} />
                     </div>
                     <span className="text-stone-700 leading-snug text-sm md:text-base">{b}</span>
                   </motion.li>
@@ -311,10 +310,10 @@ export default function MadrePage() {
                 href={PURCHASE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold px-8 py-4 rounded-full shadow-lg transition-all duration-200 hover:scale-105 no-underline"
+                className="hotmart-fb hotmart__button-checkout !inline-flex !flex-row !items-center !justify-center !gap-2 bg-rose-500 hover:bg-rose-400 text-white font-bold px-8 py-4 rounded-full shadow-lg transition-all duration-200 hover:scale-105 no-underline"
               >
                 <Heart size={18} fill="currentColor" className="flex-shrink-0" />
-                <span>Quiero Este Ebook Ahora</span>
+                <span>Quiero Este Libro Ahora</span>
               </a>
             </motion.div>
           </div>
@@ -325,52 +324,25 @@ export default function MadrePage() {
       <section className="py-20 md:py-28 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <motion.div className="text-center mb-12" {...fadeUp} transition={{ duration: 0.6 }}>
-            <p className="text-xs font-bold uppercase tracking-widest text-amber-600 mb-3">
+            <p className="text-xs font-bold uppercase tracking-widest text-rose-600 mb-3">
               Testimonios
             </p>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-stone-900">
-              Lo que otras madres están experimentando
+              Mujeres restauradas por el amor de Dios
             </h2>
           </motion.div>
 
-          {/* Mobile: horizontal snap-scroll carousel */}
-          <div
-            className="md:hidden flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 -mx-4 px-4"
-            style={{ scrollbarWidth: 'none' }}
-          >
-            {testimonials.map((t, i) => (
-              <div
-                key={i}
-                className="snap-start shrink-0 w-[80vw] max-w-[320px] bg-[#fdf8f0] rounded-3xl p-7 border border-amber-100 flex flex-col"
-              >
-                <div className="flex gap-0.5 mb-4">
-                  {Array.from({ length: 5 }).map((_, j) => (
-                    <Star key={j} size={15} className="text-amber-400 fill-amber-400" />
-                  ))}
-                </div>
-                <p className="text-stone-600 text-sm leading-relaxed italic flex-1 mb-5">
-                  &ldquo;{t.quote}&rdquo;
-                </p>
-                <div>
-                  <p className="font-semibold text-stone-900 text-sm">{t.name}</p>
-                  <p className="text-stone-400 text-xs">{t.role}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Desktop: regular grid */}
-          <div className="hidden md:grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-6">
             {testimonials.map((t, i) => (
               <motion.div
                 key={i}
-                className="bg-[#fdf8f0] rounded-3xl p-7 border border-amber-100 flex flex-col"
+                className="bg-[#fdf8f0] rounded-3xl p-7 border border-rose-100 flex flex-col"
                 {...fadeUp}
                 transition={{ duration: 0.6, delay: i * 0.15 }}
               >
                 <div className="flex gap-0.5 mb-4">
                   {Array.from({ length: 5 }).map((_, j) => (
-                    <Star key={j} size={15} className="text-amber-400 fill-amber-400" />
+                    <Star key={j} size={15} className="text-rose-400 fill-rose-400" />
                   ))}
                 </div>
                 <p className="text-stone-600 text-sm leading-relaxed italic flex-1 mb-5">
@@ -398,7 +370,7 @@ export default function MadrePage() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <div className="relative w-60 h-72 md:w-full md:h-[420px] mx-auto rounded-3xl overflow-hidden shadow-2xl ring-4 ring-amber-300/50">
+              <div className="relative w-60 h-72 md:w-full md:h-[420px] mx-auto rounded-3xl overflow-hidden shadow-2xl ring-4 ring-rose-300/50">
                 <Image
                   src="/CF_Author.jpeg"
                   alt="Candice Figueroa – Autora"
@@ -416,7 +388,7 @@ export default function MadrePage() {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <p className="text-xs font-bold uppercase tracking-widest text-amber-600 mb-2">
+              <p className="text-xs font-bold uppercase tracking-widest text-rose-600 mb-2">
                 La Autora
               </p>
               <h3 className="font-display text-2xl md:text-3xl font-bold text-stone-900 mb-5">
@@ -424,22 +396,19 @@ export default function MadrePage() {
               </h3>
               <div className="space-y-4 text-stone-600 leading-relaxed text-sm md:text-base">
                 <p>
-                  Soy Candice Figueroa, una mujer transformada por el poder de Dios. He
-                  experimentado Su mano obrando milagros en medio de la angustia, la soledad y
-                  el dolor, y hoy vivo para levantar a otras mujeres que sienten que han tocado
-                  fondo, porque sé lo que es estar ahí y también sé que sí se puede salir.
+                  Después de atravesar tres divorcios, batallas profundas contra la ansiedad, la depresión 
+                  y la soledad, descubrí algo que ninguna terapia convencional pudo darme: el amor incondicional 
+                  de Dios y la paz que solo viene de Él.
                 </p>
                 <p>
-                  Soy madre de tres hijos maravillosos, divorciada, escritora, predicadora y
-                  conferencista. Tengo una vida de oración y he visto milagros en la vida de mis
-                  hijos y en mi vida gracias a ella. Como presidenta de la Fundación Mujer
-                  Valiente y comunicadora con dos programas de radio, mi misión es guiar a
-                  mujeres hacia su restauración, identidad y propósito.
+                  Hoy, como mujer restaurada, valiosa y plena en Cristo, comparto mi historia no desde la teoría, 
+                  sino desde la experiencia vivida. Mi misión es simple pero poderosa: mostrar a otras mujeres que 
+                  el dolor tiene propósito, que las heridas pueden sanar, y que Dios especializa en resucitar corazones rotos.
                 </p>
               </div>
-              <div className="mt-6 bg-amber-50 border-l-4 border-amber-400 px-6 py-5 rounded-r-2xl">
+              <div className="mt-6 bg-rose-50 border-l-4 border-rose-400 px-6 py-5 rounded-r-2xl">
                 <p className="font-script text-lg md:text-xl text-stone-700 italic leading-relaxed">
-                  &ldquo;Hoy puedes cubrir la vida de tus hijos con oración.&rdquo;
+                  &ldquo;Dios no desperdicia nuestro dolor. Lo transforma en propósito.&rdquo;
                 </p>
               </div>
             </motion.div>
@@ -455,30 +424,30 @@ export default function MadrePage() {
               {[Shield, Heart, Sun].map((Icon, i) => (
                 <div
                   key={i}
-                  className="w-12 h-12 rounded-full bg-amber-500/15 border border-amber-400/30 flex items-center justify-center"
+                  className="w-12 h-12 rounded-full bg-rose-500/15 border border-rose-400/30 flex items-center justify-center"
                 >
-                  <Icon size={20} className="text-amber-400" />
+                  <Icon size={20} className="text-rose-400" />
                 </div>
               ))}
             </div>
 
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
-              Hoy puedes cubrir la vida de
-              <br className="hidden sm:block" /> tus hijos con oración
+              Tu historia de restauración
+              <br className="hidden sm:block" /> comienza hoy
             </h2>
             <p className="text-stone-300 text-lg mb-12 leading-relaxed max-w-2xl mx-auto">
-              No esperes más. Tus hijos necesitan tus oraciones. Este ebook te equipará con las
-              herramientas espirituales para interceder con fe, autoridad y esperanza.
+              No esperes más para encontrar la paz y la libertad que tu alma anhela. El mismo Dios 
+              que restauró a la autora, quiere restaurarte a ti.
             </p>
 
             <a
               href={PURCHASE_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-3 bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold text-lg md:text-xl px-10 py-5 rounded-full shadow-2xl transition-all duration-200 hover:scale-105 no-underline"
+              className="hotmart-fb hotmart__button-checkout !inline-flex !flex-row !items-center !justify-center !gap-3 bg-rose-500 hover:bg-rose-400 text-white font-bold text-lg md:text-xl px-10 py-5 rounded-full shadow-2xl transition-all duration-200 hover:scale-105 no-underline"
             >
               <Heart size={22} fill="currentColor" className="flex-shrink-0" />
-              <span>Quiero Orar Por la Vida de Mis Hijos</span>
+              <span>Quiero Sanar Mi Corazón</span>
             </a>
 
             <p className="mt-5 text-stone-500 text-sm">
@@ -493,7 +462,7 @@ export default function MadrePage() {
         <p className="text-stone-500 text-sm mb-2">
           © 2025 Colección Restauración y Fe — Todos los derechos reservados.
         </p>
-        <Link href="/" className="text-amber-400 hover:text-amber-300 text-sm transition-colors">
+        <Link href="/" className="text-rose-400 hover:text-rose-300 text-sm transition-colors">
           Ver toda la colección →
         </Link>
       </footer>

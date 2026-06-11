@@ -51,7 +51,7 @@ export default function RootLayout({
             height="1"
             width="1"
             style={{ display: 'none' }}
-            src="https://www.facebook.com/tr?id=1803022857032865&ev=PageView&noscript=1"
+            src="https://www.facebook.com/tr?id=986448157195985&ev=PageView&noscript=1"
             alt=""
           />
         </noscript>
@@ -65,8 +65,28 @@ export default function RootLayout({
           t.src=v;s=b.getElementsByTagName(e)[0];
           s.parentNode.insertBefore(t,s)}(window, document,'script',
           'https://connect.facebook.net/en_US/fbevents.js');
-          fbq('init', '1803022857032865');
+          fbq('init', '986448157195985');
           fbq('track', 'PageView');
+        `}</Script>
+        {/* Google Analytics */}
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-0RJCMRVF2F"
+        />
+        <Script id="google-analytics-config" strategy="afterInteractive">{`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-0RJCMRVF2F');
+        `}</Script>
+        {/* Microsoft Clarity */}
+        <Script id="microsoft-clarity" strategy="afterInteractive">{`
+          (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+          })(window, document, "clarity", "script", "x2mbnf5s12");
         `}</Script>
         {/* Hotmart Checkout Widget */}
         <Script

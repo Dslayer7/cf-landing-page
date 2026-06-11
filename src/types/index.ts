@@ -20,6 +20,7 @@ export interface Ebook {
   ctaText: string;              // Call-to-action button text
   salesUrl: string;             // Hotmart sales page (go.hotmart.com)
   purchaseUrl: string;          // Hotmart checkout page (pay.hotmart.com)
+  price: string;                // Display price shown on the card (e.g. "$9.99")
 }
 
 /**

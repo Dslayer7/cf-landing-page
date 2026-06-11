@@ -21,13 +21,6 @@ import { Button } from '@/components/ui/Button';
 import { FINAL_CTA_CONTENT } from '@/lib/constants';
 
 export const FinalCTASection: React.FC = () => {
-  const handleCTAClick = () => {
-    const element = document.getElementById('coleccion');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <section id="comprar" className="py-16 md:py-24 bg-gradient-to-br from-brand-50 via-warm-50/70 to-brand-100 relative overflow-hidden border-t border-brand-100">
       {/* Decorative background elements */}
@@ -73,14 +66,14 @@ export const FinalCTASection: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.5 }}
           >
-            <Button
-              variant="primary"
-              size="large"
-              onClick={handleCTAClick}
-              className="w-full md:w-auto text-xl md:text-2xl px-12 py-6 animate-pulse-soft shadow-2xl"
+            <a
+              href="https://pay.hotmart.com/W105741778X"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hotmart-fb hotmart__button-checkout inline-flex items-center justify-center w-full md:w-auto text-xl md:text-2xl px-12 py-6 bg-gradient-to-r from-brand-500 to-brand-700 text-white font-semibold rounded-full shadow-2xl hover:from-brand-600 hover:to-brand-800 transition-all duration-300 hover:scale-105 animate-pulse-soft no-underline"
             >
               {FINAL_CTA_CONTENT.ctaText}
-            </Button>
+            </a>
           </motion.div>
 
           {/* Trust Badges */}

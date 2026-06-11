@@ -72,6 +72,7 @@ export const EBOOKS: Ebook[] = [
     ctaText: 'Conocer Más Sobre Este Libro',
     salesUrl: 'https://go.hotmart.com/K105640822T',
     purchaseUrl: 'https://pay.hotmart.com/K105640822T',
+    price: '$9.99',
   },
   {
     id: 'libro-2',
@@ -88,6 +89,7 @@ export const EBOOKS: Ebook[] = [
     ctaText: 'Descubre el Poder de la Oración',
     salesUrl: 'https://go.hotmart.com/T105640031B',
     purchaseUrl: 'https://pay.hotmart.com/T105640031B',
+    price: '$9.99',
   },
   {
     id: 'libro-3',
@@ -105,6 +107,7 @@ export const EBOOKS: Ebook[] = [
     ctaText: 'Comienza Tu Viaje de Libertad',
     salesUrl: 'https://go.hotmart.com/P105649750A',
     purchaseUrl: 'https://pay.hotmart.com/P105649750A',
+    price: '$9.99',
   },
 ];
 
@@ -134,6 +137,20 @@ export const BUNDLE_CONTENT = {
   ],
   closingText: 'Juntos, forman un camino completo de transformación: del dolor a la paz, de la ansiedad a la libertad, de la desesperanza a la fe renovada.',
   ctaText: '¡Sí, Quiero la Colección Completa!',
+  specialOffer: {
+    heading: '¡Oferta Especial de la Colección Completa!',
+    subheading: 'Obtén los 3 Libros a un Precio Exclusivo',
+    description: 'Compra la colección completa a un precio especial y ahorra. Esta es tu oportunidad única de iniciar un camino completo de transformación emocional y espiritual con los tres libros que cambiarán tu vida para siempre.',
+    highlights: [
+      'Acceso inmediato a los 3 libros digitales',
+      'Precio especial exclusivo del paquete completo',
+      'Un camino completo de sanidad y restauración',
+      'Compatible con todos tus dispositivos',
+    ],
+    ctaText: 'Comprar la Colección Completa Ahora',
+    salesUrl: 'https://go.hotmart.com/W105741778X',
+    purchaseUrl: 'https://pay.hotmart.com/W105741778X',
+  },
 };
 
 /**

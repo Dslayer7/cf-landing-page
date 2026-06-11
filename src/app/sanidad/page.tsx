@@ -6,38 +6,36 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Check, Heart, Star, BookOpen, Shield, Sun } from 'lucide-react';
 
-const PURCHASE_URL = 'https://pay.hotmart.com/I105601030B';
+const PURCHASE_URL = 'https://pay.hotmart.com/T105640031B';
 
 const painPoints = [
-  'Te preocupa la salud de tus hijos',
-  'Has sentido miedo por su bienestar',
-  'Has orado… pero necesitas más dirección',
-  'No quieres quedarte sola con la angustia',
+  'Estás enfrentando una enfermedad física, emocional o espiritual',
+  'Has orado pero necesitas fortalecer tu fe',
+  'Quieres experimentar el poder sanador de Dios',
+  'Necesitas dirección y esperanza en medio de la prueba',
 ];
 
 const benefits = [
-  'Oraciones específicas por la salud y vida de tus hijos',
-  'Testimonios de madres que oraron y recibieron milagros y protección',
-  'Cómo orar con fe y autoridad en momentos de enfermedad',
-  'Claves poderosas para vencer el miedo como madre',
-  'Reflexiones bíblicas que traen paz en medio de la tormenta',
+  'Los versículos bíblicos con los que cada día oraron y se fortalecieron.',
+  'Reflexiones que aumentarán tu fe y confianza en el poder sanador de Dios.',
+  'Espacios para escribir tus propias oraciones y registrar tus milagros.',
 ];
 
 const testimonials = [
   {
-    quote: 'Hoy tengo paz, incluso en medio del proceso de salud de mi hijo.',
-    name: 'María J.',
-    role: 'Madre de 2 hijos',
+    quote: 'El desafío de oración de 30 días cambió mi vida. Dios sanó mi cuerpo y renovó mi fe. Estos libros son un regalo del cielo.',
+    name: 'Rosa M.',
+    role: '51 años',
   },
   {
-    quote: 'Aprendí a orar con fe, no desde el miedo. Este libro cambió mi manera de interceder.',
-    name: 'Carmen R.',
-    role: 'Mamá y lectora',
+    quote: 'Aprendí a clamar con fe. Vi milagros que nunca imaginé posibles. Este libro es poderoso.',
+    name: 'Patricia S.',
+    role: '47 años',
   },
   {
-    quote: 'Este ebook me devolvió la esperanza cuando más la necesitaba.',
-    name: 'Ana L.',
-    role: 'Madre de familia',
+    quote: 'Cada día de oración me acercó más a Dios. Experimenté sanidad en cuerpo, mente y espíritu.',
+    name: 'Gabriela R.',
+    role: '39 años',
   },
 ];
 
@@ -47,7 +45,7 @@ const fadeUp = {
   viewport: { once: true as const },
 };
 
-export default function MadrePage() {
+export default function SanidadPage() {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -55,9 +53,6 @@ export default function MadrePage() {
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
-
-  const scrollTo = (id: string) =>
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
 
   return (
     <main className="min-h-screen font-body">
@@ -74,7 +69,7 @@ export default function MadrePage() {
           <Link
             href="/"
             className={`text-sm font-medium transition-colors ${
-              isScrolled ? 'text-white/70 hover:text-white' : 'text-stone-700 hover:text-stone-900'
+              isScrolled ? 'text-white/70 hover:text-white' : 'text-white/80 hover:text-white'
             }`}
           >
             ← Restauración y Fe
@@ -82,78 +77,63 @@ export default function MadrePage() {
         </div>
       </header>
 
-      {/* ── HERO ── full-bleed photo, cream bg match, dark text ── */}
-      {/*
-        MotherPageCover.png: warm cream/sand bg (~#f0d9b8), mother+kids on right.
-        Left area of the image is naturally clear, so dark text reads perfectly.
-        Section bg color matches the image so edges are seamless.
-      */}
-      <section
-        className="relative min-h-[65vh] lg:min-h-screen flex items-center overflow-hidden"
-        style={{ backgroundColor: '#f0d9b8' }}
-      >
-        {/* Full-bleed background photo */}
+      {/* ── HERO ── */}
+      <section className="relative min-h-[65vh] lg:min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-slate-700 via-slate-600 to-slate-800">
+        {/* Background Image (Blurred cover book) */}
         <Image
-          src="/MotherPageCover.png"
+          src="/Cover02_ebook.png"
           fill
-          alt="Mamá leyendo con sus hijos"
-          className="object-cover object-[80%_50%] lg:object-right"
+          alt="Background"
+          className="object-cover blur-[8px] opacity-45 scale-110"
           priority
         />
 
-        {/* Mobile-only cream fade so text stays readable on narrow viewports */}
-        <div
-          className="absolute inset-0 sm:hidden"
-          style={{
-            background:
-              'linear-gradient(to right, rgba(240,217,184,0.92) 55%, rgba(240,217,184,0.3) 100%)',
-          }}
-        />
+        {/* Navy Layer Overlay with low opacity for readability */}
+        <div className="absolute inset-0 bg-slate-950/45" />
 
-        {/* Content — left-aligned over the clean cream area */}
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 xl:px-24 pt-32 pb-20">
-          <div className="max-w-lg xl:max-w-xl">
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pt-32 pb-20">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="max-w-lg">
 
             <motion.div
-              className="inline-flex items-center gap-2 bg-amber-600/15 border border-amber-600/30 text-amber-800 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold mb-7"
+              className="inline-flex items-center gap-2 bg-sky-600/15 border border-sky-600/30 text-sky-800 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold mb-7"
               initial={{ opacity: 0, y: -16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
               <Heart size={12} fill="currentColor" />
-              Edición Especial · Día de las Madres
+              Sanidad y Milagros
               <Heart size={12} fill="currentColor" />
             </motion.div>
 
             <motion.h1
-              className="font-display text-5xl sm:text-6xl lg:text-7xl font-extrabold text-stone-900 leading-[1.05] italic mb-4"
+              className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.05] mb-4"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.15 }}
             >
-              El Poder de una
+              Un Clamor
               <br />
-              <span className="text-amber-700">Madre que Ora</span>
+              <span className="text-sky-400">por Sanidad</span>
             </motion.h1>
 
             <motion.p
-              className="text-xl sm:text-2xl text-stone-700 font-medium italic mb-4"
+              className="text-xl sm:text-2xl text-sky-200 font-medium italic mb-4"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.35, duration: 0.7 }}
             >
-              por la Salud y Vida de sus Hijos
+              30 días para experimentar el poder de Dios en cuerpo, mente y espíritu.
             </motion.p>
 
             <motion.p
-              className="text-base sm:text-lg text-stone-600 leading-relaxed mb-10 max-w-md"
+              className="text-base sm:text-lg text-slate-200 leading-relaxed mb-10 max-w-md"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.7 }}
             >
-              Cuando una madre ora, el cielo responde con sanidad, protección y vida.
-              Descubre cómo cubrir a tus hijos con oraciones poderosas, incluso en
-              momentos de enfermedad, miedo o incertidumbre.
+              Las enfermedades no tienen más poder que la oración hecha con fe. Descubre cómo 
+              la presencia de Dios puede sanar lo que la medicina no alcanza.
             </motion.p>
 
             <motion.div
@@ -166,11 +146,30 @@ export default function MadrePage() {
                 href={PURCHASE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-amber-600 hover:bg-amber-700 text-white font-bold text-base sm:text-lg px-8 py-4 rounded-full shadow-lg transition-all duration-200 hover:scale-105 no-underline"
+                className="hotmart-fb hotmart__button-checkout !inline-flex !flex-row !items-center !justify-center !gap-2 bg-sky-600 hover:bg-sky-700 text-white font-bold text-base sm:text-lg px-8 py-4 rounded-full shadow-lg transition-all duration-200 hover:scale-105 no-underline"
               >
                 <Heart size={18} fill="currentColor" className="flex-shrink-0" />
-                <span>Quiero Orar Por la Vida de Mis Hijos</span>
+                <span>Quiero Experimentar Sanidad</span>
               </a>
+            </motion.div>
+
+            </div>
+
+            <motion.div
+              className="hidden lg:flex justify-center lg:justify-end"
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
+              <div className="relative w-80 h-[480px] rounded-3xl overflow-hidden shadow-2xl ring-4 ring-white/20">
+                <Image
+                  src="/Cover02_ebook.png"
+                  fill
+                  alt="Un Clamor por Sanidad"
+                  className="object-cover"
+                  sizes="320px"
+                />
+              </div>
             </motion.div>
 
           </div>
@@ -183,11 +182,11 @@ export default function MadrePage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
 
           <motion.div className="text-center mb-12" {...fadeUp} transition={{ duration: 0.7 }}>
-            <p className="text-xs font-bold uppercase tracking-widest text-amber-600 mb-3">
-              Para ti, mamá
+            <p className="text-xs font-bold uppercase tracking-widest text-sky-600 mb-3">
+              Para ti que necesitas sanidad
             </p>
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-stone-900">
-              Sé lo que pesa en tu corazón…
+              Sé lo que estás enfrentando…
             </h2>
           </motion.div>
 
@@ -199,7 +198,7 @@ export default function MadrePage() {
                 {...fadeUp}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
               >
-                <span className="w-8 h-8 rounded-full bg-amber-100 text-amber-700 font-bold text-sm flex items-center justify-center shrink-0">
+                <span className="w-8 h-8 rounded-full bg-sky-100 text-sky-700 font-bold text-sm flex items-center justify-center shrink-0">
                   {i + 1}
                 </span>
                 <p className="text-stone-700 font-medium leading-snug">{p}</p>
@@ -207,17 +206,16 @@ export default function MadrePage() {
             ))}
           </div>
 
-          {/* Bridge quote */}
           <motion.div
             className="bg-stone-900 text-white rounded-3xl px-8 md:px-14 py-12 text-center"
             {...fadeUp}
             transition={{ duration: 0.8 }}
           >
             <p className="font-display text-2xl md:text-3xl lg:text-4xl font-bold italic leading-relaxed">
-              &ldquo;Hay batallas que una madre no pelea con sus manos…
+              &ldquo;Cuando el cielo se une a la fe…
             </p>
-            <p className="font-display text-2xl md:text-3xl lg:text-4xl font-bold italic text-amber-400 mt-1">
-              las pelea de rodillas.&rdquo;
+            <p className="font-display text-2xl md:text-3xl lg:text-4xl font-bold italic text-sky-400 mt-1">
+              la sanidad ocurre.&rdquo;
             </p>
           </motion.div>
         </div>
@@ -227,29 +225,27 @@ export default function MadrePage() {
       <section className="py-20 md:py-28 bg-stone-900 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <motion.div {...fadeUp} transition={{ duration: 0.8 }}>
-            <p className="text-xs font-bold uppercase tracking-widest text-amber-400 mb-4">
-              El Ebook
+            <p className="text-xs font-bold uppercase tracking-widest text-sky-400 mb-4">
+              El Libro
             </p>
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-8 leading-tight">
-              Una guía para cubrir la vida
-              <br className="hidden md:block" /> de tus hijos con fe
+              Testimonios de milagros
+              <br className="hidden md:block" /> y poder sobrenatural
             </h2>
             <p className="text-lg md:text-xl text-stone-300 leading-relaxed max-w-3xl mx-auto mb-10">
-              <em>
-                &ldquo;El Poder de una Madre que Ora por la Salud y Vida de sus Hijos&rdquo;
-              </em>{' '}
-              es una guía espiritual práctica que te enseña a interceder con fe, autoridad y
-              esperanza, aun en medio de la incertidumbre. Transforma tu preocupación en
-              oración efectiva y aprende a declarar vida, sanidad y protección cada día.
+              Este libro es el testimonio vivo de cómo la presencia de Dios puede sanar lo que la medicina 
+              no alcanza, transformar el miedo en esperanza y el dolor en propósito. Durante 30 días, más de 
+              120 personas participaron en un desafío espiritual de oración a las 5 de la mañana, y muchas de 
+              ellas fueron testigos del obrar sobrenatural del Señor.
             </p>
             <a
               href={PURCHASE_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold px-8 py-4 rounded-full shadow-xl transition-all duration-200 hover:scale-105 no-underline"
+              className="hotmart-fb hotmart__button-checkout !inline-flex !flex-row !items-center !justify-center !gap-2 bg-sky-500 hover:bg-sky-400 text-white font-bold px-8 py-4 rounded-full shadow-xl transition-all duration-200 hover:scale-105 no-underline"
             >
-              <BookOpen size={18} />
-              Obtener Mi Ebook
+              <BookOpen size={18} className="flex-shrink-0" />
+              <span>Obtener Este Libro</span>
             </a>
           </motion.div>
         </div>
@@ -260,35 +256,33 @@ export default function MadrePage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
 
-            {/* Book cover */}
             <motion.div
-              className="relative rounded-3xl overflow-hidden aspect-square shadow-2xl"
+              className="relative rounded-3xl overflow-hidden aspect-[3/4] shadow-2xl"
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
               <Image
-                src="/MotherBookCover.png"
-                alt="El Poder de una Madre que Ora – Portada"
+                src="/Cover02_ebook.png"
+                alt="Un Clamor por Sanidad – Portada"
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </motion.div>
 
-            {/* Benefits list */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <p className="text-xs font-bold uppercase tracking-widest text-amber-600 mb-3">
-                Lo que recibirás dentro
+              <p className="text-xs font-bold uppercase tracking-widest text-sky-600 mb-3">
+                Incluye
               </p>
               <h3 className="font-display text-2xl md:text-3xl font-bold text-stone-900 mb-8 leading-tight">
-                Herramientas reales para una madre guerrera
+                Herramientas para fortalecer tu fe
               </h3>
               <ul className="space-y-4 mb-10">
                 {benefits.map((b, i) => (
@@ -300,8 +294,8 @@ export default function MadrePage() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.3 + i * 0.08 }}
                   >
-                    <div className="w-6 h-6 rounded-full bg-amber-100 flex items-center justify-center shrink-0 mt-0.5">
-                      <Check size={13} className="text-amber-600" strokeWidth={3} />
+                    <div className="w-6 h-6 rounded-full bg-sky-100 flex items-center justify-center shrink-0 mt-0.5">
+                      <Check size={13} className="text-sky-600" strokeWidth={3} />
                     </div>
                     <span className="text-stone-700 leading-snug text-sm md:text-base">{b}</span>
                   </motion.li>
@@ -311,10 +305,10 @@ export default function MadrePage() {
                 href={PURCHASE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold px-8 py-4 rounded-full shadow-lg transition-all duration-200 hover:scale-105 no-underline"
+                className="hotmart-fb hotmart__button-checkout !inline-flex !flex-row !items-center !justify-center !gap-2 bg-sky-500 hover:bg-sky-400 text-white font-bold px-8 py-4 rounded-full shadow-lg transition-all duration-200 hover:scale-105 no-underline"
               >
                 <Heart size={18} fill="currentColor" className="flex-shrink-0" />
-                <span>Quiero Este Ebook Ahora</span>
+                <span>Quiero Este Libro Ahora</span>
               </a>
             </motion.div>
           </div>
@@ -325,52 +319,25 @@ export default function MadrePage() {
       <section className="py-20 md:py-28 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <motion.div className="text-center mb-12" {...fadeUp} transition={{ duration: 0.6 }}>
-            <p className="text-xs font-bold uppercase tracking-widest text-amber-600 mb-3">
+            <p className="text-xs font-bold uppercase tracking-widest text-sky-600 mb-3">
               Testimonios
             </p>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-stone-900">
-              Lo que otras madres están experimentando
+              Milagros reales de personas reales
             </h2>
           </motion.div>
 
-          {/* Mobile: horizontal snap-scroll carousel */}
-          <div
-            className="md:hidden flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 -mx-4 px-4"
-            style={{ scrollbarWidth: 'none' }}
-          >
-            {testimonials.map((t, i) => (
-              <div
-                key={i}
-                className="snap-start shrink-0 w-[80vw] max-w-[320px] bg-[#fdf8f0] rounded-3xl p-7 border border-amber-100 flex flex-col"
-              >
-                <div className="flex gap-0.5 mb-4">
-                  {Array.from({ length: 5 }).map((_, j) => (
-                    <Star key={j} size={15} className="text-amber-400 fill-amber-400" />
-                  ))}
-                </div>
-                <p className="text-stone-600 text-sm leading-relaxed italic flex-1 mb-5">
-                  &ldquo;{t.quote}&rdquo;
-                </p>
-                <div>
-                  <p className="font-semibold text-stone-900 text-sm">{t.name}</p>
-                  <p className="text-stone-400 text-xs">{t.role}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Desktop: regular grid */}
-          <div className="hidden md:grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-6">
             {testimonials.map((t, i) => (
               <motion.div
                 key={i}
-                className="bg-[#fdf8f0] rounded-3xl p-7 border border-amber-100 flex flex-col"
+                className="bg-[#fdf8f0] rounded-3xl p-7 border border-sky-100 flex flex-col"
                 {...fadeUp}
                 transition={{ duration: 0.6, delay: i * 0.15 }}
               >
                 <div className="flex gap-0.5 mb-4">
                   {Array.from({ length: 5 }).map((_, j) => (
-                    <Star key={j} size={15} className="text-amber-400 fill-amber-400" />
+                    <Star key={j} size={15} className="text-sky-400 fill-sky-400" />
                   ))}
                 </div>
                 <p className="text-stone-600 text-sm leading-relaxed italic flex-1 mb-5">
@@ -398,7 +365,7 @@ export default function MadrePage() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <div className="relative w-60 h-72 md:w-full md:h-[420px] mx-auto rounded-3xl overflow-hidden shadow-2xl ring-4 ring-amber-300/50">
+              <div className="relative w-60 h-72 md:w-full md:h-[420px] mx-auto rounded-3xl overflow-hidden shadow-2xl ring-4 ring-sky-300/50">
                 <Image
                   src="/CF_Author.jpeg"
                   alt="Candice Figueroa – Autora"
@@ -416,7 +383,7 @@ export default function MadrePage() {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <p className="text-xs font-bold uppercase tracking-widest text-amber-600 mb-2">
+              <p className="text-xs font-bold uppercase tracking-widest text-sky-600 mb-2">
                 La Autora
               </p>
               <h3 className="font-display text-2xl md:text-3xl font-bold text-stone-900 mb-5">
@@ -424,22 +391,19 @@ export default function MadrePage() {
               </h3>
               <div className="space-y-4 text-stone-600 leading-relaxed text-sm md:text-base">
                 <p>
-                  Soy Candice Figueroa, una mujer transformada por el poder de Dios. He
-                  experimentado Su mano obrando milagros en medio de la angustia, la soledad y
-                  el dolor, y hoy vivo para levantar a otras mujeres que sienten que han tocado
-                  fondo, porque sé lo que es estar ahí y también sé que sí se puede salir.
+                  He experimentado la mano de Dios obrando milagros en medio de la angustia, la soledad y 
+                  el dolor. Hoy vivo para levantar a otras mujeres que sienten que han tocado fondo, porque 
+                  sé lo que es estar ahí y también sé que sí se puede salir.
                 </p>
                 <p>
-                  Soy madre de tres hijos maravillosos, divorciada, escritora, predicadora y
-                  conferencista. Tengo una vida de oración y he visto milagros en la vida de mis
-                  hijos y en mi vida gracias a ella. Como presidenta de la Fundación Mujer
-                  Valiente y comunicadora con dos programas de radio, mi misión es guiar a
-                  mujeres hacia su restauración, identidad y propósito.
+                  Tengo una vida de oración y he visto milagros en la vida de mis hijos y en mi vida gracias 
+                  a ella. Mi misión es guiar a mujeres hacia su restauración, identidad y propósito a través 
+                  del poder de la oración.
                 </p>
               </div>
-              <div className="mt-6 bg-amber-50 border-l-4 border-amber-400 px-6 py-5 rounded-r-2xl">
+              <div className="mt-6 bg-sky-50 border-l-4 border-sky-400 px-6 py-5 rounded-r-2xl">
                 <p className="font-script text-lg md:text-xl text-stone-700 italic leading-relaxed">
-                  &ldquo;Hoy puedes cubrir la vida de tus hijos con oración.&rdquo;
+                  &ldquo;Cuando el cielo se une a la fe, la sanidad ocurre.&rdquo;
                 </p>
               </div>
             </motion.div>
@@ -455,30 +419,30 @@ export default function MadrePage() {
               {[Shield, Heart, Sun].map((Icon, i) => (
                 <div
                   key={i}
-                  className="w-12 h-12 rounded-full bg-amber-500/15 border border-amber-400/30 flex items-center justify-center"
+                  className="w-12 h-12 rounded-full bg-sky-500/15 border border-sky-400/30 flex items-center justify-center"
                 >
-                  <Icon size={20} className="text-amber-400" />
+                  <Icon size={20} className="text-sky-400" />
                 </div>
               ))}
             </div>
 
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
-              Hoy puedes cubrir la vida de
-              <br className="hidden sm:block" /> tus hijos con oración
+              Clama, cree y espera
+              <br className="hidden sm:block" /> tu milagro
             </h2>
             <p className="text-stone-300 text-lg mb-12 leading-relaxed max-w-2xl mx-auto">
-              No esperes más. Tus hijos necesitan tus oraciones. Este ebook te equipará con las
-              herramientas espirituales para interceder con fe, autoridad y esperanza.
+              Este libro es una invitación a clamar, creer y esperar… porque cuando el cielo se une 
+              a la fe, la sanidad ocurre.
             </p>
 
             <a
               href={PURCHASE_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-3 bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold text-lg md:text-xl px-10 py-5 rounded-full shadow-2xl transition-all duration-200 hover:scale-105 no-underline"
+              className="hotmart-fb hotmart__button-checkout !inline-flex !flex-row !items-center !justify-center !gap-3 bg-sky-500 hover:bg-sky-400 text-white font-bold text-lg md:text-xl px-10 py-5 rounded-full shadow-2xl transition-all duration-200 hover:scale-105 no-underline"
             >
               <Heart size={22} fill="currentColor" className="flex-shrink-0" />
-              <span>Quiero Orar Por la Vida de Mis Hijos</span>
+              <span>Quiero Experimentar Sanidad</span>
             </a>
 
             <p className="mt-5 text-stone-500 text-sm">
@@ -493,7 +457,7 @@ export default function MadrePage() {
         <p className="text-stone-500 text-sm mb-2">
           © 2025 Colección Restauración y Fe — Todos los derechos reservados.
         </p>
-        <Link href="/" className="text-amber-400 hover:text-amber-300 text-sm transition-colors">
+        <Link href="/" className="text-sky-400 hover:text-sky-300 text-sm transition-colors">
           Ver toda la colección →
         </Link>
       </footer>
